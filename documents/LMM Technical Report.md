@@ -116,7 +116,270 @@ A multimodal instruction sample often includes an optional instruction and an in
 
 # 5. LMM Demos
 
+## Two available demos with advanced LMM models
 
+* **[InternVL](https://internvl.opengvlab.com/)**
+
+* **[LLaVA](https://llava.hliu.cc/)**
+
+## information extraction examples
+
+### **Receipt 1**
+
+<!-- Table 2: Information extraction examples using two LMMs -->
+
+<img style="float:right;" src="pictures/receipt-template-us-modern-red-750px.png" height="510" width="350" />
+
+|        |InternVL	| LLaVA |
+|:---|:---|:---|
+|Company name|	East Repair Inc.	|East Repair Inc.|
+|company address	|1912 Harvest Lane, New York, NY 12210.	| 1912 Harvest Lane, New York, NY 12210.|
+|Phone number	|not provided	|not visible|
+|receipt number|	US-001	|US-001|
+|rate and amount of tax|tax rate is 6.25%, the tax amount is $9.06	| The tax rate is 6.25%, and the amount of tax is $9.06.|
+|Due date	|26/02/2019	|26/02/2019|
+|receipt date	|11/02/2019|	11/02/2019|
+|Total amount	|$154.06	|$154.06|
+|name of the first item in the table |	Front and rear brake cables.	| Front and rear brake cables.|
+|nameof the last item in the table	| Labor 3hrs.	| Labor 3hrs.|
+|cost of the second item	|the cost of the second item, "New set of pedal arms", is $30	|The cost of the second item is $30.00.|
+
+**read the text and return information in JSON format. I need company name, address, phone number, date, and total amount**
+
+**InternVL**  
+{  
+  "company_name": "East Repair Inc.",  
+  "address": "1912 Harvest Lane, New York, NY 12210",  
+  "phone_number": "N/A",  
+  "date": {  
+    "receipt_date": "11/02/2019",  
+    "due_date": "26/02/2019"  
+  },  
+  "total_amount": "$154.06"  
+}
+
+**LLaVA**  
+{  
+  "company_name": "East Repair Inc.",  
+  "address": "1912 Harvest Lane, New York, NY 12210",  
+  "phone_number": "518-438-1000",  
+  "date": "11/02/2019",  
+  "total_amount": "$154.06"  
+}
+
+
+### **Receipt 2**
+<img style="float:right;" src="pictures/tan woon yann.png" height="360" width="200" />
+
+|        |InternVL	| LLaVA |
+|:---|:---|:---|
+|Company name	|BOOK TA_K (TAMAN DAYA) SDN BHD	|Tan Woon Yann.|
+|Address of the company|	NO.5: 55,57 & 69, JALAN SAGU 18, TAMAN DAYA, 81100 JOHOR BAHRU, JOHOR.	|BOOK TA K (TAMAN DAYA) Sdn Bhd, No. 5, 55, 57 & 59, Jalan Sagu 18, Taman Daya, 81100 Johor Bahru, Johor.|
+|Total amount	|9.00 RM	|9.00|
+|Document number	|TD0117104	|TD016/1014|
+|Phone number	|not provided|	955990416|
+|what is the date |	25/12/2018 20:13 |	25/12/2018.|
+|date	|The date on the receipt is 25/12/2018, which is 8:13:39 PM.	|25/12/2018.|
+|item name	|KF MODELING CLAY KIDDY FISH	|RF MODELING CLAY KIDDY FISH.|
+
+### **Receipt 3**
+<img style="float:right;" src="pictures/stout.png" height="620" width="450" />
+
+|        |InternVL	| LLaVA |
+|:---|:---|:---|
+|company name	|STOUT INDUSTRIES, INC.	|Stout Industries, Inc.|
+|company address|	6425 W. FLORISSANT AVE., ST. LOUIS, MO 63136.	|6425 W. Florissant Ave., St. Louis, MO 63136.|
+|Phone number |	(314) 385-2280.	|314-389-2800|
+|addressee name	|Lorillard Corporation.|	Mr. A. D. Steinberg|
+|addressee address	|666 Fifth Avenue, New York, NY 10103.	|666 Fifth Avenue, New York, 10019|
+|date	|October 16, 1987.	|October 16, 1987.|
+|item name	|Harley Davidson Metal Plaque.	|Harley Davidson Metal 'Pack' Plague|
+|item number	|not provided in the visible portion of the document|	17k x 23"|
+|number of the items	|500 Plaques.	|500 Plagues|
+|item price	|$9.18 each.|	$9.18 each|
+|total price	|$4,600.00	|$4,600.00|
+|total payment	|$4,060.00	|$4,600.00|
+|total billing	|$4,060.00	|$4,600.00|
+|invoice number	| not visible in the provided image	|10675|
+
+
+### **Bank Statement - InternVL **
+
+<img style="float:right;" src="pictures/bank statement - ANZ highlight.png" height="600" width="400" />
+
+* Describe the image in a short sentence
+
+A statement from ANZ Home Loan showing transaction details.
+
+* describe the image in less than 3 words
+
+loan statement, 4 pages
+
+* list all the interest items
+
+The image lists several interest items in the "Transaction details" section. Here are the interest transactions listed:  
+29 MAR INTEREST 2,374.71  
+26 APR INTEREST 2,534.19  
+26 MAY INTEREST 2,405.42  
+15 JUN INTEREST 2,422.78  
+26 JUL INTEREST 2,340.66  
+26 AUG INTEREST 2,385.16  
+26 SEP INTEREST 2,344.92  
+These interest transactions are accompanied by corresponding credits and debits, and the balance after each transaction is also shown.
+
+* list the items highlighted in yellow
+
+The items highlighted in yellow in the image are:
+
+The word "Interest" appears multiple times, indicating the interest charges for various dates.  
+The total balance of "$634,828.60DR" at the end of the financial year is highlighted, indicating the final balance of the account.  
+
+Please note that the highlighted items are inferred from the visual cues of the image, as the actual highlighting is not visible in the text provided.  
+
+
+* what's the total balance
+
+The total balance at the end of the period displayed on the statement is $634,828.60DR. This is shown in the "Totals at end of period" section at the bottom of the page.
+
+* what's the total interest
+
+The total interest paid over the financial year ending 30/06/2016 is $29,481.33. This amount is listed under the "Yearly summary" section at the bottom of the page.
+
+* what is the earliest date of this statement
+
+The earliest date of the transactions listed on this statement is 24 MAR, which is the date of the "BALANCE BROUGHT FORWARD" transaction.
+
+* what is the last date of this statement
+
+The last date of the transactions listed on this statement is 26 SEP, which is the date of the "INTEREST" transaction.
+
+* what is the account number
+
+The account number is 1010-10101, as indicated at the top of the statement.
+
+* what is the phone number
+
+There is no phone number visible on the statement provided in the image.
+
+### Two invoices on one image
+
+<img style="float:right;" src="pictures/Receipt_2024-05-25_070641.jpg" height="500" width="300" />
+
+
+##### **LLaVA** 
+
+* describe this image
+
+
+The image you've provided appears to be a scanned copy of a retail store receipt. The receipt is from a store called "Target" and includes details of the items purchased, their prices, and the total amount paid. The items listed include various gift cards and possibly some other products, but the specific details are not entirely clear due to the resolution of the image.
+
+The receipt also includes information about the payment method used, which seems to be a credit card, and the transaction date and time. There is a barcode at the bottom of the receipt, which is typically used for returns or exchanges. The receipt also contains a note about the store's return policy and a reminder to keep the receipt for future reference.
+
+Please note that sharing personal information from receipts, such as credit card numbers or personal details, can be a security risk, so it's important to handle such information carefully.
+
+
+* How many receipt does it have?
+
+The image shows a single receipt from a retail store.
+
+##### **InternVL**
+
+* describe this image
+
+The image is a photograph of a printed tax invoice from Target, a retail store, and a receipt from Bunnings Warehouse, a hardware store. The Target invoice is dated April 5, 2004, and lists various items purchased, including a 2-pack of impulse items, a Star gift bag, a Blue gift bag, and an exchange of a 60-day gift card. The total cost is $16.75, which includes GST (Goods and Services Tax) of $1.52. The Bunnings Warehouse receipt is dated February 19, 2004, and shows the purchase of a tap adapter and other items totaling $127.19. The receipt also includes a barcode for scanning and a note about OnePass, a membership program. The background of the image is white, and the text is printed in black, making it easily readable.
+
+* how many receipts are included
+
+There are two receipts included in the image. One is from Target, and the other is from Bunnings Warehouse.
+
+* describe the image in less than 10 words
+
+Target and Bunnings Warehouse tax invoices.
+
+* total amount on the target receipt
+
+The total amount on the Target receipt is $16.75, which includes GST (Goods and Services Tax) of $1.52.
+
+* total amount of the second receipt
+
+The total amount on the Bunnings Warehouse receipt is $127.19.
+
+
+* date of the first receipt
+
+The date of the first receipt from Target is April 5, 2004.
+
+* date of the second receipt
+
+The date of the second receipt from Bunnings Warehouse is February 19, 2004.
+
+* check the date of the second receipt again
+
+The date of the second receipt from Bunnings Warehouse is February 19, 2004.
+
+* phone number of target
+
+(02) 6256 4000
+
+* phone number of bunnings
+
+(02) 6234 9500
+
+* ABN of Target
+
+The ABN (Australian Business Number) of Target is not visible in the image provided.
+
+* items of the first receipt
+
+The items on the first receipt from Target include a 2-pack of impulse items, a Star gift bag, a Blue gift bag, and an exchange of a 60-day gift card.
+
+* items of the second receipt
+
+The items on the second receipt from Bunnings Warehouse include a tap adapter and other hardware items.
+
+* list the items of the second receipt (the model has a bug here)
+
+The items on the second receipt from Bunnings Warehouse include:
+
+12 M 7/16" TAP ADAPTER BRASS HULMAN  
+2 M BSP GRIP GRIP 05AH  
+2 X 1.5 M BSP GRIP GRIP 05AH  
+2 X 1.5 M PLANT-PLUMB PLANT-PLUMB NEW  
+1 X 1.5 M PLANT-PLUMB PLANT-PLUMB NEW  
+1 X 1.5 M PLANT-PLUMB PLANT-PLUMB NEW  
+1 X 1.5 M PLANT-PLUMB PLANT-PLUMB NEW  
+1 X 1.5 M PLANT-PLUMB PLANT-PLUMB NEW  
+1 X 1.5 M PLANT-PLUMB 
+
+
+## An Example for Document Categorisation and Claim Match
+
+<img style="float:right;" src="pictures/meeting_chromosome.png" height="600" width="400" />
+
+1. is this relevant to a claim about attending academic conference?
+
+Yes, this document is relevant to a claim about attending an academic conference. It is a record of an accepted symposium at the Annual Meeting of the American Association for the Advancement of Science (AAAS) in Los Angeles, which is an academic conference. The form details the symposium's title, speakers, and their affiliations, which can be used to verify attendance or participation in the event.
+
+2. describe this image in less than 5 words
+
+Document for AAAS symposium, Los Angeles.
+
+3. There are a number of categories of documents including phone, tools, working from home, conference, car, and gift. Which category this image should belong to?
+
+This image should belong to the "conference" category, as it is a document related to an academic conference and symposium.
+
+4. what are the names of the speakers?
+
+The names of the speakers mentioned in the document are:
+
+* Dr. William J. Schull
+* Dr. Jorge J. Yunis
+* Dr. Sheldon Wolff
+* Dr. Patricia Jacobs
+* Dr. Raymond White
+* Dr. Michael A. Bender
+
+These speakers are affiliated with various universities and institutions, and their topics cover a range of subjects related to the human chromosome and cytogenetics.
 
 
 # Selected LMM Papers
