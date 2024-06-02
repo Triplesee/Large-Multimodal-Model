@@ -417,7 +417,7 @@ contrastive training, vision-language generative training, and supervised fine-t
 </p>
 
 
-## Paper: MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training [[6]](#6) 
+## Paper: MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training [[2]](#2) 
 
 In particular, we study the importance of various architecture components and data choices. Through
 careful and comprehensive ablations of the image encoder, the vision
@@ -454,7 +454,3 @@ Chen, Zhe and Wang, Weiyun and Tian, Hao and Ye, Shenglong and Gao, Zhangwei and
 How Far Are We to GPT-4V? Closing the Gap to Commercial Multimodal Models with Open-Source Suites
 arXiv:2404.16821, 2024
 
-<a id="6">[6]</a>
-Brandon McKinzie and Zhe Gan and Jean-Philippe Fauconnier Biard and Sam Dodge and Philipp Dufter and Bowen Zhang and Dhruti Shah and Xianzhi Du and Futang Peng and Haotian Zhang and Floris Weers and Anton Belyi and Karanjeet Singh and Doug Kang and Ankur Jain and Hongyu He and Max Schwarzer and Tom Gunter and Xiang Kong and Aonan Zhang and Jianyu Wang and Chong Wang and Nan Du and Tao Lei and Sam Wiseman and Mark Lee and Zirui Wang and Ruoming Pang and Peter Grasch and Alexander Toshev and Yinfei Yang
-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training,
-arXiv:2403.09611v4, 2024
