@@ -3,20 +3,20 @@ marp: true
 ---
 
 
-# Multi-modal Large Language Model - An Intro
+# Large Multimodal Model - An Intro
 
 ---
 # **overview**
 
-## 1. What is MLLM?
+## 1. What is LMM?
 
-## 2. Why MLLM?
+## 2. Why LMM?
 
-## 3. MLLM Architeture
+## 3. LMM Architeture
 
-## 4. MLLM Training Strategy and Data
+## 4. LMM Training Strategy and Data
 
-## 5. MLLM for Document Understanding
+## 5. LMM for Document Understanding
 ---
 # The motivation 
 
@@ -25,7 +25,7 @@ for document understanding. Currently the document understanding pipeline
 is doing a good job. However, it is fairly complex with 
 many steps. The training needs a lot of data and time which is very expensive.
 
-On the other hand, MLLM attracted a lot of attention because it 
+On the other hand, LMM attracted a lot of attention because it 
 
 You might have watched a nice video a few weeks ago called "Multimodal Generative AI Demystified". The Multimodal models mentioned in that video includes many types of input and many types of output. 
 
@@ -33,26 +33,26 @@ This presentation as shown in the title, is to explore the impact of LMM to docu
 
 ---
 
-# What is MLLM?
+# What is LMM?
 
 ## Multimodal Large Language Model <-> Large Multimodal Model
 
 ## LLM-based model with the ability to **receive**, **reason**, and **output** with multimodal information. 
 
-## MLLM manifests two representative traits: 
-(1) MLLM is based on LLM with billion scale parameters, which is not available in previous models. 
+## LMM manifests two representative traits: 
+(1) LMM is based on LLM with billion scale parameters, which is not available in previous models. 
 
-(2) MLLM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning to encourage the model to follow new instructions. 
+(2) LMM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning to encourage the model to follow new instructions. 
 
 ---
-# 2. MLLM Architecture
+# 2. LMM Architecture
 
-A typical MLLM can be abstracted into three modules, i.e., 
+A typical LMM can be abstracted into three modules, i.e., 
  1) a pre-trained modality encoder, 
  2) a pre-trained LLM, and 
  3) a modality interface to connect them. 
 
-The typical MLLM architechture is as follows
+The typical LMM architechture is as follows
 
 ![architecture](pictures/architecture.png)
 

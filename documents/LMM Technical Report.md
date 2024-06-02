@@ -1,4 +1,4 @@
-This technical report is to provide an overview of the large multimodal models. The report includes the following sections. 1) What is Large multimodel model 2) Why we are interested in LMM 3) LMM Architeture, 4) MLLM Training Strategy and Data, and 5)MLLM for Document Understanding. At the end of the this technical report, we will also include some highlights of a few recent LMM models.
+This technical report is to provide an overview of the large multimodal models. The report includes the following sections. 1) What is Large multimodel model 2) Why we are interested in LMM 3) LMM Architeture, 4) LMM Training Strategy and Data, and 5)LMM for Document Understanding. At the end of the this technical report, we will also include some highlights of a few recent LMM models.
 
 # 1. What is LMM?
 
@@ -7,7 +7,7 @@ Large Multi-Modal Model <-> Multi-Modal Large Language Model <-> Vision Language
 
 Formally, it (Multimodal large language model) refers to the LLM-based model with the ability to receive, reason, and output with multimodal information.
 
-MLLM manifests two representative traits compared with the traditional counterparts: (1) MLLM is based on LLM with billion scale parameters, which is not available in previous models. (2)MLLM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning to encourage the model to follow new instructions. 
+LMM manifests two representative traits compared with the traditional counterparts: (1) LMM is based on LLM with billion scale parameters, which is not available in previous models. (2)LMM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning to encourage the model to follow new instructions. 
 
 # 2. Why we are interested in LMM?
 
@@ -26,10 +26,10 @@ Extracting key information from a variety of sources, including documents like t
 
 Many early methods attempt to address the task using a two-stage approach: 1)Detect and recognise the text using external systems; 2)Document understanding based on the fusion of text results and images. However, the individual step of text reading in the processing pipeline may lead to the accumulation of errors. Moreover, relying on off-the-shelf OCR Models/APIs (OCR-Models) introduces additional engineering complexity, limits the connection between the text and its surrounding context, and can potentially increase computational costs. 
 
-# 2. MLLM Architeture
-A typical MLLM can be abstracted into three modules, i.e., a pre-trained modality encoder, a pre-trained LLM, and a modality interface to connect them. 
+# 2. LMM Architeture
+A typical LMM can be abstracted into three modules, i.e., a pre-trained modality encoder, a pre-trained LLM, and a modality interface to connect them. 
 
-The typical MLLM architechture is as follows (please refer to the repository wiki to know more about inserting images in github):
+The typical LMM architechture is as follows (please refer to the repository wiki to know more about inserting images in github):
 
 <!-- ![architecture](pictures/architecture.png =500x200) -->
 <p align="center">
@@ -89,8 +89,8 @@ Empirially reveal that the token-level fusion variant performs better in terms o
 In these models, the visual encoder is no longer a CLIP as CLIP needs the image and text pair as training data. Instead these models using a pure visual encoder without text information. For example, InternVL used a a so-called dynamic high-resolution strategy to train a strong vision encoder named Intern ViT-6B-448px-V1.5. TextMonkey used a strategy including three steps: 1)shifted Window Attention; 2)Image Resampler; and 3)token resampler. In TextMonkey, the positional cues of the ansers were extracted and integrated into the answers themselves. Because of this strategy, it has a certain level of capacility of grounding, i.e., identifying the position of the information being extracted from the images. UReader also trained a visual encoder before passing the information to the LLM for instruction tuning. It also includes some grid information which makes it possible to present certain level of grounding capability.  
 
 
-# 3. MLLM Training Strategy and Data
-A full-fledged MLLM undergoes three stages of training, i.e. pre-training, instruction-tuning, and alignment tuning. Each phase of training requires different types of data and fulfills different objects.
+# 3. LMM Training Strategy and Data
+A full-fledged LMM undergoes three stages of training, i.e. pre-training, instruction-tuning, and alignment tuning. Each phase of training requires different types of data and fulfills different objects.
 
 ## 3.1 Pre-training
 
@@ -112,7 +112,7 @@ A multimodal instruction sample often includes an optional instruction and an in
 
 
 
-# 4. MLLM for Document Understanding
+# 4. LMM for Document Understanding
 
 # 5. LMM Demos
 
