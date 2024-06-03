@@ -402,6 +402,19 @@ The overall architecture is as follow:
   <img src="pictures/LayoutLLM_overall_architecture.png" width="750" />
 </p>
 
+## Paper: Visual Instruction Tuning (LLaVA) [[3]](#3) & Improved Baselines with Visual Instruction Tuning [[6]](#6)
+Some findings from the later paper include:
+
+(1) Scaling to high-resolution image inputs. We show that LLaVA’s architecture is versatile in scaling to higher resolutions by simply dividing images into grids and maintains its data efficiency; with the increased resolution, it
+improves the model’s detailed perception capabilities and reduces hallucination. 
+
+(2) Compositional capabilities. We find that large multimodal models are capable of generalizing to compositional capabilities. For example, training on long-form language reasoning together with shorter visual reasoning can improve the model’s writing capability for multimodal questions. 
+
+(3) Data efficiency. We show that randomly downsampling LLaVA’s training data mixture by up to 75% does not significantly decrease the model’s performance, suggesting that the possibility of a more sophisticated dataset compression strategy can further improve LLaVA’s already efficient training pipeline. 
+
+(4) Data scaling. We provide empirical evidence for the scaling of data granularity in conjunction with the model’s capability is crucial for an improved capability without introducing artifacts like hallucination.
+
+
 
 ## Paper: InternVL: Scaling up Vision Foundation Modesl and Aligning for Generic Visual-Linguistic Tasks [[5]](#5) 
 
@@ -436,7 +449,7 @@ in ICML, 2021
 
 <a id="2">[2]</a>
 B. McKinzie, Z. Gan, J.-P Fauconnier, S. Dodge, B. Zhang, P. Dufter, D. Shah, X. Du, F. Peng, F. Weers et al.,
-Mm1: Methods, analysis & insights from Multimodal LLM pre-training,
+MM1: Methods, analysis & insights from Multimodal LLM pre-training,
 arXiv:2403.09611v4
 
 <a id="3">[3]</a>
@@ -453,4 +466,9 @@ CVPR 2024
 Chen, Zhe and Wang, Weiyun and Tian, Hao and Ye, Shenglong and Gao, Zhangwei and Cui, Erfei and Tong, Wenwen and Hu, Kongzhi and Luo, Jiapeng and Ma, Zheng and others
 How Far Are We to GPT-4V? Closing the Gap to Commercial Multimodal Models with Open-Source Suites
 arXiv:2404.16821, 2024
+
+<a id="6">[6]</a>
+H.Liu, C.Li, Q.Wu, and Y.J.Lee, 
+Improved Baselines with Visual instruction tuning,
+arXiv:2310.03744, 2024
 
