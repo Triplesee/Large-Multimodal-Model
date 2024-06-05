@@ -12,11 +12,13 @@ marp: true
 
 ## 2. Why LMM?
 
-## 3. LMM Architeture
+## 3. LMM Architeture and Training Strategy
 
-## 4. LMM Training Strategy and Data
+## 4. A few LMM Examples
 
-## 5. LMM for Document Understanding
+## 5. LMM Demo
+
+## 5. Findings, Recommendations and Futher Resources
 ---
 
 
@@ -52,7 +54,7 @@ This research is to see if we can leverage the recent development of LMM to bene
 
 # Recent LMM Development
 
-On the other hand, there has been a boom in research and development of LMM in recent years, particularly since last year.  
+There has been a boom in research and development of LMM in recent years, particularly since last year.  
 
 ![width:1000px height: 500px](pictures/LMM-developments.png )
 
@@ -108,9 +110,9 @@ A multimodal instruction sample often includes an optional instruction and an in
 ---
 # MM1: 
 
-## Key contribution is study the importance of various architecture components and data choices. 
 
-Through careful and comprehensive ablations of the image encoder, the vision language connector, and various pre-training data choices.
+## Key Contributions: studies of the importance of various architecture components and data choices
+through ablations of the image encoder, the vision language connector, and various pre-training data choices.
 
 ## Findings:
 
@@ -120,6 +122,8 @@ Through careful and comprehensive ablations of the image encoder, the vision lan
 
 ---
 # LLaVA-1.5
+
+## Key Improvements comparing to the base LLaVA:
 
 (1) Scaling to high-resolution image inputs. 
 
@@ -133,16 +137,32 @@ Through careful and comprehensive ablations of the image encoder, the vision lan
 
 # InternVL
 
-(1) Strong Vision Encoder: we explored a continuous learning strategy for the large-scale vision foundation model—InternViT-6B, boosting its visual understanding capabilities, and making it can be transferred and reused in different LLMs. 
+## Advantages:
+(1) Strong Vision Encoder: large-scale vision foundation model—InternViT-6B, boosting its visual understanding capabilities. 
 
-(2) Dynamic HighResolution: we divide images into tiles ranging from 1 to 40 of 448×448 pixels according to the aspect ratio and resolution of the input images, which supports up to 4K resolution input. 
+(2) Dynamic HighResolution: images being divided into tiles ranging from 1 to 40 of 448×448 pixels according to the aspect ratio and resolution of the input images, which supports up to 4K resolution input. 
 
-(3) High-Quality Bilingual Dataset: we carefully collected a high-quality bilingual dataset that covers common scenes, document images, and annotated them with English and Chinese question-answer pairs, significantly enhancing performance in OCR- and Chinese-related tasks.
+(3) High-Quality Bilingual Dataset: dataset that covers common scenes and document images, which significantly enhancing performance in OCR- and Chinese-related tasks.
 
 ---
-# Recommendation
 
-When building Vector Databases, shall we also consider the vectors for multimodal data such as images particularly (scanned or photo) documents?
+# Findings
+
+## 1. Signficant advancements in the field of LMM in the last two years, and still fast evolving.
+
+## 2. Online tools demonstrates the capability of conducting many document understanding tasks including text extraction, informaiton extraction, document classification and some claim match tasks.
+
+## 3. Still space to improve, particularly information extraction from multiple documents per page, handling annotation, and more accurate claim match.
+
+
+---
+# Recommendations
+
+## 1. Experimenting on some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
+
+## 2. Keep monitoring the development of LMM as it is still a very active research topic.
+
+## 3. Start planning on vector Database for image/document data when building the ATO vector databases.
 
 ---
 
