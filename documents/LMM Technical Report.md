@@ -14,11 +14,10 @@ LMM manifests two representative traits compared with the traditional counterpar
 It is to explore the art-of-possible, more specifically, to explore if and how LMM can make the document understanding solution more effective, more efficient and more scalable. 
 
 ## 2.1 Potential Improvements to the current DU pipeline 
-We are looking at a few aspects of the DU pipeline for improvement. 1) The DU pipeline is very complex, consisting of 8 steps and more than 10 machine learning models. The complexity makes it very difficult to scale, not only scale up but also scale out. 2) The team has put a lot of effort to improve the efficiency of the DU pipeline in the last a few months, including trying faster models, parallel computing, revising post-processing of information extraction, in addition to the effort of having new hardware and platform. 3) The model performance is still to be improved across the DU pipeline. It will require substantial amount of effort to get the training data, building and validating multiple models in the DU pipeline. 
+We are looking at a few aspects of the DU pipeline for improvement. 1) The DU pipeline is very complex, consisting of 8 steps and more than 10 machine learning models. The complexity makes it very difficult to scale, not only scale up but also scale out. 2) The team has put a lot of effort to improve the efficiency of the DU pipeline in the last a few months, including trying faster models, parallel computing, revising post-processing of information extraction, in addition to the effort of having new hardware and platform. We would like to explore if LMMs can help increase the throughput of the DU pipline. 3) The performance of the models in the current DU pipeline is to be improved. It will require substantial amount of effort to get the training data, building and validating multiple models in the DU pipeline. 
 
-## 2.2 LLM and LMM
+## 2.2 Advance in LLM and LMM
 LLM has revolutionised the field of artificial intelligence, enabling natural language processing teask that were previously through exclusive to humans. The emergence of GPT-3 brought a signficant leap in capabilities, particularly in few shot and zero-shot learning, highlighing the immence potential of LLMs. This promis was further realised with the advancements of ChatGPT and GPT-4. The progress in the field has been further accelerated by the emergence of open-source LLMs including the LLaMA series, Vicuna, Qwen etc.
-
 
 
 ## 2.2 Document understanding solution - Two Steps VS OCR Free
@@ -26,7 +25,7 @@ Extracting key information from a variety of sources, including documents like t
 
 Many early methods attempt to address the task using a two-stage approach: 1)Detect and recognise the text using external systems; 2)Document understanding based on the fusion of text results and images. However, the individual step of text reading in the processing pipeline may lead to the accumulation of errors. Moreover, relying on off-the-shelf OCR Models/APIs (OCR-Models) introduces additional engineering complexity, limits the connection between the text and its surrounding context, and can potentially increase computational costs. 
 
-# 2. LMM Architeture
+# 3. LMM Architeture
 A typical LMM can be abstracted into three modules, i.e., a pre-trained modality encoder, a pre-trained LLM, and a modality interface to connect them. 
 
 The typical LMM architechture is as follows (please refer to the repository wiki to know more about inserting images in github):
@@ -36,7 +35,7 @@ The typical LMM architechture is as follows (please refer to the repository wiki
   <img src="pictures/architecture.png" width="750" />
 </p>
 
-## 2.1 Modality encoder
+## 3.1 Modality encoder
 The encoders compress raw information, such as images or audio, into a more compact representation. Rather than training from scratch, a common approach is to use a pre-trained encoder that has been aligned to other modalities.
 
 Rather than training from scratch, a common approach is to use a pretrained encoder that has been aligned to other modalities. 
@@ -58,7 +57,7 @@ Notably, many works have empirically verified that using higher resolution can a
 
 Please note: this is contradictory with the claim made by the InternV model in which the authors claims a large image encoder generates far more better results.
 
-## 2.2 Pre-trained LLM
+## 3.2 Pre-trained LLM
 
 Instead of training an LLM from scratch, it is more efficient and practical to start with a pre-trained one. LLaMA series and Vicuna family are representative open-srouced LLMs that have attracted much attention. 
 
@@ -67,7 +66,7 @@ It should be noted that scaling up the parameter size of LLMs also brings additi
 Recently, explorations of Mixture of Experts (MoE) architecture for LLMs have garnered rising attention. Compared with dense models, the sparse architecture enables scaling up total parameter size without increasing computational cost, by selective activation of parameters. Empirically, MM1 and MoE-LLaVA find that MoE implementation achieves better performance than the dense counterpart on almost all the benchmarks.
 
 
-## 2.3 Modality Interface
+## 3.3 Modality Interface
 
 Since LLMs can only perceive text, bridging the gap between natural language and other modalities is necessary. However, it would be costly to train a large multimodal model in an end-to-end manner. A More practical way is to introduce a learnable connector between the pre-trained visual encoder and LLM. The other approach is to translate images into languages with the help of expert models, and then send the language to LLM.
 
@@ -85,36 +84,36 @@ Empirially reveal that the token-level fusion variant performs better in terms o
 **Expert Model**. Apart from the learnable interface, using expert models, such as an image captioning model, is also a feaible way to bridge the modality gap. The basic idea is to convert multimodal inputs into languages without training. In this way, LLMs can understand multimodality by the converted languages. Though using expert models is straightforward, it may not be as flexible as adopting a learnable interface. The conversion of foreign modalities into text would cause information loss.
 
 
-## 2.4 Some models using multiple resolution of images for pretraining
-In these models, the visual encoder is no longer a CLIP as CLIP needs the image and text pair as training data. Instead these models using a pure visual encoder without text information. For example, InternVL used a a so-called dynamic high-resolution strategy to train a strong vision encoder named Intern ViT-6B-448px-V1.5. TextMonkey used a strategy including three steps: 1)shifted Window Attention; 2)Image Resampler; and 3)token resampler. In TextMonkey, the positional cues of the ansers were extracted and integrated into the answers themselves. Because of this strategy, it has a certain level of capacility of grounding, i.e., identifying the position of the information being extracted from the images. UReader also trained a visual encoder before passing the information to the LLM for instruction tuning. It also includes some grid information which makes it possible to present certain level of grounding capability.  
+## 3.4 Some models using multiple resolution of images for pretraining
+In these models, the visual encoder is no longer a CLIP as CLIP needs the image and text pair as training data. Instead these models using a pure visual encoder without text information. For example, InternVL[[5]](#5) used a a so-called dynamic high-resolution strategy to train a strong vision encoder named Intern ViT-6B-448px-V1.5. TextMonkey used a strategy including three steps: 1)shifted Window Attention; 2)Image Resampler; and 3)token resampler. In TextMonkey, the positional cues of the ansers were extracted and integrated into the answers themselves. Because of this strategy, it has a certain level of capacility of grounding, i.e., identifying the position of the information being extracted from the images. UReader also trained a visual encoder before passing the information to the LLM for instruction tuning. It also includes some grid information which makes it possible to present certain level of grounding capability.  
 
 
-# 3. LMM Training Strategy and Data
+# 4. LMM Training Strategy and Data
 A full-fledged LMM undergoes three stages of training, i.e. pre-training, instruction-tuning, and alignment tuning. Each phase of training requires different types of data and fulfills different objects.
 
-## 3.1 Pre-training
+## 4.1 Pre-training
 
-### 3.1.1 Training Detail
+### 4.1.1 Training Detail
 As the first training stage, pre-training mainly aims to align different modalities and learn multimodal world knowledge. Pre-training stage generally entails large-scale text-paired data, e.g., caption data. Typically, the caption pairs describe images/audio/videos in natural language sentences. A common approach for pre-training is to keep pre-trained modules (e.g. visual encoders and LLMs) frozen and train a learnable interface. 
 
-### 3.1.2 Data
+### 4.1.2 Data
 Pretraining data mainly serve two purposes, i.e. (1) aligning different modalities and (2) providing world knowledge.
 
-## 3.2 Instruction-Tuning
-### 3.2.1 Introduction
+## 4.2 Instruction-Tuning
+### 4.2.1 Introduction
 
 Instruction refers to the description of tasks. Intuitively, instruction tuning aims to teach models to better understand the instructions from users and fulfill the demanded tasks. The comparisons between instruction tuning and related typical learning paradigms are illustrated in Fig. 3. The supervised fine-tuning approach usually requires a large amount of task-specific data to train a task-specific model. The prompting approach reduces the reliance on large-scale data and can fulfill a specialized task via prompt engineering. In such a case, though the few-shot performance has been improved, the zero-shot performance is still quite
 average. Differently, instruction tuning learns how to generalize to unseen tasks rather than fitting specific tasks like the two counterparts. Moreover, instruction tuning is highly related to multi-task prompting.
 
-### 3.2.2 Training Detail
+### 4.2.2 Training Detail
 A multimodal instruction sample often includes an optional instruction and an input-output pair. The instruction is typically a natural language sentence describing the task, such as, “Describe the image in detail.” The input can be an image-text pair like the VQA task or only an image like the image caption task. The output is the answer to the instruction conditioned on the input.
 
 
 
 
-# 4. LMM for Document Understanding
+# 5. LMM for Document Understanding
 
-# 5. LMM Demos
+# 6. LMM Demos
 
 ## Two available demos with advanced LMM models
 
@@ -130,19 +129,19 @@ A multimodal instruction sample often includes an optional instruction and an in
 
 <img style="float:right;" src="pictures/receipt-template-us-modern-red-750px.png" height="510" width="350" />
 
-|        |InternVL	| LLaVA |
-|:---|:---|:---|
-|Company name|	East Repair Inc.	|East Repair Inc.|
-|company address	|1912 Harvest Lane, New York, NY 12210.	| 1912 Harvest Lane, New York, NY 12210.|
-|Phone number	|not provided	|not visible|
-|receipt number|	US-001	|US-001|
-|rate and amount of tax|tax rate is 6.25%, the tax amount is $9.06	| The tax rate is 6.25%, and the amount of tax is $9.06.|
-|Due date	|26/02/2019	|26/02/2019|
-|receipt date	|11/02/2019|	11/02/2019|
-|Total amount	|$154.06	|$154.06|
-|name of the first item in the table |	Front and rear brake cables.	| Front and rear brake cables.|
-|nameof the last item in the table	| Labor 3hrs.	| Labor 3hrs.|
-|cost of the second item	|the cost of the second item, "New set of pedal arms", is $30	|The cost of the second item is $30.00.|
+|        |InternVL	| LLaVA | EasyOCR + llama-3-70b-instruct |
+|:---|:---|:---|:---|
+|Company name|	East Repair Inc.	|East Repair Inc.| East Repair Inc_ |
+|company address	|1912 Harvest Lane, New York, NY 12210.	| 1912 Harvest Lane, New York, NY 12210.| 1912 Harvest Lane, New York, NY 12210|
+|Phone number	|not provided	|not visible|Not detected in the provided text|
+|receipt number|	US-001	|US-001| Not detected in the provided text|
+|rate and amount of tax|tax rate is 6.25%, the tax amount is $9.06	| The tax rate is 6.25%, and the amount of tax is $9.06.| Tax Rate: 6.25% Tax Amount: $9.06 |
+|Due date	|26/02/2019	|26/02/2019| 26/02/2019 |
+|receipt date	|11/02/2019|	11/02/2019| 11/02/2019 |
+|Total amount	|$154.06	|$154.06| $154.06 |
+|name of the first item in the table |	Front and rear brake cables.	| Front and rear brake cables.| East Repair Inc_ |
+|nameof the last item in the table	| Labor 3hrs.	| Labor 3hrs.| Please make checks payable to: East Repair Inc|
+|cost of the second item	|the cost of the second item, "New set of pedal arms", is $30	|The cost of the second item is $30.00.| Not detected in the provided text |
 
 **read the text and return information in JSON format. I need company name, address, phone number, date, and total amount**
 
