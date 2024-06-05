@@ -3,7 +3,7 @@ marp: true
 ---
 
 
-# Large Multimodal Model and Its Potential Impact to Document Understanding
+# Large Multimodal Model and Its Impact to Document Understanding
 
 ---
 # **overview**
@@ -22,7 +22,9 @@ marp: true
 
 # What is LMM?
 
-**Large Multimodal Model** <-> **Multimodal Large Language Model** <-> **Large Vision-Language Models**
+**Large Multimodal Model** 
+<-> **Multimodal Large Language Model** 
+<-> **Large Vision Language Models**
 
 * LLM-based model with the ability to **receive**, **reason**, and **output** with multimodal information. 
 
@@ -70,7 +72,11 @@ A typical LMM can be abstracted into three modules, i.e.,
 
 The typical LMM architechture is as follows
 
-![width:600px height: 450px](pictures/architecture.png)
+<!-- ![width:600px height: 450px](pictures/architecture.png) -->
+
+<p align="center">
+  <img src="pictures/architecture.png" width="600" />
+</p>
 
 ---
 
@@ -154,8 +160,21 @@ When building Vector Databases, shall we also consider the vectors for multimoda
 
 ---
 
-Further materiel for this presentation
+## Further materiel for this presentation
 
 You might have watched a nice video a few weeks ago called "Multimodal Generative AI Demystified". The Multimodal models mentioned in that video includes many types of input and many types of output. 
 
 Note: With Document Understanding in consideration, this presentation will be focusing on multimodel on Image and Text. And it will also not involve any image generation.
+
+---
+# An example of interleaved image-text data:
+<!-- ![width:400px height: 650px](pictures/interleaved-image-text.png) -->
+
+
+<p align="right">
+  <img src="pictures/interleaved-image-text.png" width="300" />
+</p>
+
+---
+## Some of the challenges when I read the papers.
+1. There is no consistent measure of the benchmark results.
