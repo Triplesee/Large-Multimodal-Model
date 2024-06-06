@@ -212,6 +212,15 @@ table {
 
 ---
 
+# Demo
+
+<!-- [<p align="center"> -->
+  [<img src="pictures/InternVL-demo.png" width="600" />](https://internvl.opengvlab.com/)
+<!-- </p>] -->
+
+
+---
+
 # Findings
 
 1. Signficant advancements in the field of LMM in the last two years, and still fast evolving.
