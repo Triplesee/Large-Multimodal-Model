@@ -19,7 +19,7 @@ style: @import url('https://unpkg.com/tailwindcss@^2/dist/utilities.min.css');
 
 ## 5. LMM Demo
 
-## 5. Findings, Recommendations and Futher Resources
+## 6. Findings, Recommendations and Futher Resources
 ---
 
 
