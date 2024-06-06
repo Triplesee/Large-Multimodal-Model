@@ -1,7 +1,8 @@
 ---
 marp: true
----
+style: @import url('https://unpkg.com/tailwindcss@^2/dist/utilities.min.css');
 
+---
 
 # Large Multimodal Model and Its Impact to Document Understanding
 
@@ -135,6 +136,7 @@ through ablations of the image encoder, the vision language connector, and vario
 
 ---
 
+
 # InternVL
 
 ## Advantages:
@@ -144,25 +146,89 @@ through ablations of the image encoder, the vision language connector, and vario
 
 (3) High-Quality Bilingual Dataset: dataset that covers common scenes and document images, which significantly enhancing performance in OCR- and Chinese-related tasks.
 
+
+---
+
+# Information Extraction Comparison
+
+<div class="grid grid-cols-2 gap-0">
+<div>
+
+## Invoice
+
+<img style="float:left;" src="pictures/receipt-template-us-modern-red-750px.png" height="550" width="350" />
+
+
+</div>
+<div>
+
+## Results
+
+<style scoped>
+table {
+  font-size: 16px;
+}
+</style>
+
+|        |InternVL	| LLaVA | EasyOCR + llama-3-70b-instruct |
+|:---|:---|:---|:---|
+|Company name|	East Repair Inc.	|East Repair Inc.| East Repair Inc_ |
+|company address	|1912 Harvest Lane, New York, NY 12210.	| 1912 Harvest Lane, New York, NY 12210.| 1912 Harvest Lane, New York, NY 12210|
+|Phone number	|not provided	|not visible|Not detected in the provided text|
+|receipt number|	US-001	|US-001| Not detected in the provided text|
+|rate and amount of tax|tax rate is 6.25%, the tax amount is $9.06	| The tax rate is 6.25%, and the amount of tax is $9.06.| Tax Rate: 6.25% Tax Amount: $9.06 |
+|Due date	|26/02/2019	|26/02/2019| 26/02/2019 |
+|receipt date	|11/02/2019|	11/02/2019| 11/02/2019 |
+|Total amount	|$154.06	|$154.06| $154.06 |
+|name of the first item in the table |	Front and rear brake cables.	| Front and rear brake cables.| East Repair Inc_ |
+|nameof the last item in the table	| Labor 3hrs.	| Labor 3hrs.| Please make checks payable to: East Repair Inc|
+|cost of the second item	|the cost of the second item, "New set of pedal arms", is $30	|The cost of the second item is $30.00.| Not detected in the provided text |
+
+
+</div>
+</div>
+
+
+
+<style scoped>
+table {
+  font-size: 9px;
+}
+</style>
+
+|        |InternVL	| LLaVA | EasyOCR + llama-3-70b-instruct |
+|:---|:---|:---|:---|
+|Company name|	East Repair Inc.	|East Repair Inc.| East Repair Inc_ |
+|company address	|1912 Harvest Lane, New York, NY 12210.	| 1912 Harvest Lane, New York, NY 12210.| 1912 Harvest Lane, New York, NY 12210|
+|Phone number	|not provided	|not visible|Not detected in the provided text|
+|receipt number|	US-001	|US-001| Not detected in the provided text|
+|rate and amount of tax|tax rate is 6.25%, the tax amount is $9.06	| The tax rate is 6.25%, and the amount of tax is $9.06.| Tax Rate: 6.25% Tax Amount: $9.06 |
+|Due date	|26/02/2019	|26/02/2019| 26/02/2019 |
+|receipt date	|11/02/2019|	11/02/2019| 11/02/2019 |
+|Total amount	|$154.06	|$154.06| $154.06 |
+|name of the first item in the table |	Front and rear brake cables.	| Front and rear brake cables.| East Repair Inc_ |
+|nameof the last item in the table	| Labor 3hrs.	| Labor 3hrs.| Please make checks payable to: East Repair Inc|
+|cost of the second item	|the cost of the second item, "New set of pedal arms", is $30	|The cost of the second item is $30.00.| Not detected in the provided text |
+
 ---
 
 # Findings
 
-## 1. Signficant advancements in the field of LMM in the last two years, and still fast evolving.
+1. Signficant advancements in the field of LMM in the last two years, and still fast evolving.
 
-## 2. Online tools demonstrates the capability of conducting many document understanding tasks including text extraction, informaiton extraction, document classification and some claim match tasks.
+2. Online tools demonstrates the capability of conducting many document understanding tasks including text extraction, informaiton extraction, document classification and some claim match tasks.
 
-## 3. Still space to improve, particularly information extraction from multiple documents per page, handling annotation, and more accurate claim match.
+3. Space for improvement, particularly on information extraction from multiple documents per page, handling annotation, text grounding, and accurate claim match.
 
 
 ---
 # Recommendations
 
-## 1. Experimenting on some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
+1. Experimenting on some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
 
-## 2. Keep monitoring the development of LMM as it is still a very active research topic.
+2. Keep monitoring the development of LMM as it is still a very active research topic.
 
-## 3. Start planning on vector Database for image/document data when building the ATO vector databases.
+3. Start planning on Vector Database for image/document data when building the ATO vector databases.
 
 ---
 
