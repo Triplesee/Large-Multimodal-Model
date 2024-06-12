@@ -40,7 +40,7 @@ The encoders compress raw information, such as images or audio, into a more comp
 
 Rather than training from scratch, a common approach is to use a pretrained encoder that has been aligned to other modalities. 
 
-For exaple, CLIP [[1]](#1) incorporates a visual encoder semantically aligned with the text through large-scale pre-training on image-text paris. Therefore, it is easier to use such initially pre-aligned encoders to align with LLMs through alignment pre-training. Some commonly used image encoders are listed in Table 1:
+For exaple, CLIP [[1]](#1) incorporates a visual encoder semantically aligned with the text through large-scale pre-training on image-text pairs. Therefore, it is easier to use such initially pre-aligned encoders to align with LLMs through alignment pre-training. Some commonly used image encoders are listed in Table 1:
 
 Table 1: Commonly Used Image Encoders
 
