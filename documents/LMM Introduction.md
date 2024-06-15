@@ -230,18 +230,19 @@ table {
 3. Space for improvement, particularly on information extraction from multiple documents per page, handling annotation, text grounding, and accurate claim match.
 ---
 # Next steps:
-1. further research on model fine tuning including llm and vision models.
-2. research on few shot learning for lmm.
-3. start the experiments on existing advanced LMM.
+1. Further research on model fine tuning including llm and vision models.
+
+2. Start trying some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
 
 ---
 # Recommendations
+1. Keep monitoring the development of LMM as it is still a very active research topic.
 
-1. Experimenting on some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
+2. To conduct experiments to see if LMM is capable of doing specific document understanding tasks. This will involve more comprehensive evaluation on model performance, throughput, and resource required. 
 
-2. Keep monitoring the development of LMM as it is still a very active research topic.
+3. To explore if we can create and utilise synthethic documents data for more targeted experiments.
 
-3. Start planning on Vector Database for image/document data when building the ATO vector databases.
+4. Start planning on Vector Database for image/document data when building the ATO vector databases.
 
 ---
 
