@@ -229,15 +229,25 @@ table {
 2. Online tools demonstrates the capability of conducting many document understanding tasks including text extraction, informaiton extraction, document classification and some claim match tasks.
 
 3. Space for improvement, particularly on information extraction from multiple documents per page, handling annotation, text grounding, and accurate claim match.
+
+4. Some papers looking at multi-page document understanding which may be useful to the document understanding scenario in ATO (often documents were scanned into a single file with many pages)
+---
+# Challenges and Limitations
+
+1. Evaludation on LMM is quite challenging. The evaluation results appeared in the available papers are not consistent.
+2. We haven't looked into anything to do with throughput yet. 
+
 ---
 # Next steps:
-1. Further research on model fine tuning including llm and vision models.
+1. Keep monitoring the development of LMM as it is still a very active research topic. The interesting areas include the development on vision foundation model, LMMs with more document features embedded such as multi-page document understanding, etc.
 
-2. Start trying some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
+2. Further research on model fine tuning including llm and vision models.
+
+3. Start trying some of the advanced LMM such as InternVL, LLaVA-1.6, TextMonkey, LayoutLLM etc.
 
 ---
 # Recommendations
-1. Keep monitoring the development of LMM as it is still a very active research topic.
+1. To initiate a research spike on a potential PoC using LMM for document understand tasks.
 
 2. To conduct experiments to see if LMM is capable of doing specific document understanding tasks. This will involve more comprehensive evaluation on model performance, throughput, and resource required. 
 
