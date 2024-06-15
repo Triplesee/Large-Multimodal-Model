@@ -108,8 +108,10 @@ average. Differently, instruction tuning learns how to generalize to unseen task
 ### 4.2.2 Training Detail
 A multimodal instruction sample often includes an optional instruction and an input-output pair. The instruction is typically a natural language sentence describing the task, such as, “Describe the image in detail.” The input can be an image-text pair like the VQA task or only an image like the image caption task. The output is the answer to the instruction conditioned on the input.
 
+## 4.3 in context learning and few shot fine tuning
+In-context Learning (ICL): ICL shines in its simplicity and flexibility. It allows for quick task adaptation through natural language prompts, making it ideal for situations where speed and ease of use are paramount.
 
-
+Few-shot Fine-tuning (FT): FT provides more stable and consistent performance across various tasks and datasets. Though it requires more time and computational resources than ICL, the investment typically results in better performance, especially for complex or out-of-domain tasks.
 
 # 5. LMM for Document Understanding
 
