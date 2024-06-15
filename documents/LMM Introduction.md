@@ -1,8 +1,9 @@
 ---
 marp: true
-style: @import url('https://unpkg.com/tailwindcss@^2/dist/utilities.min.css');
-
 ---
+
+
+<!-- style: @import url('https://unpkg.com/tailwindcss@^2/dist/utilities.min.css'); -->
 
 # Large Multimodal Model and Its Impact to Document Understanding
 
