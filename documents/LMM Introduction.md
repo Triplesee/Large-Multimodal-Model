@@ -228,7 +228,11 @@ table {
 2. Online tools demonstrates the capability of conducting many document understanding tasks including text extraction, informaiton extraction, document classification and some claim match tasks.
 
 3. Space for improvement, particularly on information extraction from multiple documents per page, handling annotation, text grounding, and accurate claim match.
-
+---
+# Next steps:
+1. further research on model fine tuning including llm and vision models.
+2. research on few shot learning for lmm.
+3. start the experiments on existing advanced LMM.
 
 ---
 # Recommendations
