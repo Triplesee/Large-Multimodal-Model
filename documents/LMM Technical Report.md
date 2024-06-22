@@ -115,7 +115,23 @@ Few-shot Fine-tuning (FT): FT provides more stable and consistent performance ac
 
 # 5. LMM for Document Understanding
 
-# 6. LMM Demos
+# 6. LMM Evaluation
+Along with the booming of LMM, the evaulation of LMM has also made significant progress. Not only many benchmark datasets but also many Python packages were created to evaluate LMM.
+
+One of the best GitHub repositories about LMM evaluation is 
+
+[VLMEvalKit](https://github.com/open-compass/VLMEvalKit?tab=readme-ov-file#%EF%B8%8F-development-guide)
+
+VLMEvalKit (the python package name is vlmeval) is an open-source evaluation toolkit of large vision-language models (LVLMs). It enables one-command evaluation of LVLMs on various benchmarks, without the heavy workload of data preparation under multiple repositories. It supports many popular LMMs such as GPT-4v, GPT-4o, Gemini, LLaVA, InternVL,Qwen-VL etc, and many benchmark datasets such as MME, OCRBench, DocVQA, TextVQA etc.
+
+Another GitHub respository worth paying attention is   
+
+[lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval)
+
+
+
+
+# 7. LMM Demos
 
 ## Two available demos with advanced LMM models
 
