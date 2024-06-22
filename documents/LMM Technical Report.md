@@ -456,6 +456,38 @@ large-scale multimodal pre-training using a careful mix of image-caption,
 interleaved image-text, and text-only data is crucial for achieving stateof-the-art (SOTA) few-shot results across multiple benchmarks, compared to other published multimodal pre-training results. Further, we
 show that the image encoder together with image resolution and the image token count has substantial impact, while the vision-language connector design is of comparatively negligible importance
 
+## Paper: On the Hidden Mystery of OCR in Large Multimodal Models [[7]](#7)
+This paper proposed OCRBench, a comprehensive evaluation benchmark for OCR. The findings are:
+
+* **Semantic-Reliance**. LMMs primarily rely on semantic understanding to recognize words. In our experiments,
+we observed that LMMs exhibit poor recognition performance when it comes to character combinations that
+lack semantic meaning. Specifically, when we altered the order of letters in each word, the accuracy of LMMs
+on the NST dataset decreased by an average of 57.0% compared to the ST dataset, while the SOTA method for
+4 scene text recognition only drops by around 4.6%. We believe this is because the SOTA method for scene text
+recognition directly recognizes each character, and semantic information is just used to assist the recognition
+process, while LMMs primarily rely on semantic understanding to recognize words. This finding is further
+supported by the low accuracy observed on the ORAND dataset. As shown in Fig. 1, LMM successfully
+identified the word "Message," but incorrectly recognized "egaesMs," which is a rearranged version of the
+word "Message."
+
+* **Handwritten Text**. LMMs may encounter difficulties in accurately recognizing handwritten text due to various reasons, including the resemblances in shapes between handwritten letters and numbers. Handwritten text
+often appears incomplete or blurry due to factors like fast writing speed, irregular handwriting, or low-quality paper. On average, LMMs perform 51.9% worse than supervised state-of-the-art model in this task.
+
+* **Multilingual Text**. The notable performance gap observed in LMMs on ReCTS, ESTVQA(En), and ESTVQA(Ch) highlights their limited proficiency in the Chinese language, as indicated in Tab. 1 and Tab. 2.
+Among the LMMs, accurately recognizing Chinese words or responding to Chinese questions proves to be a
+challenge. Monkey outperforms other LMMs in Chinese scenarios due to its LLM and visual encoder being
+trained on a substantial amount of Chinese data.
+
+* **Fine-grain Perception**. Currently, most LMMs have their input images limited to a resolution of 224 x 224,
+consistent with the input size of the visual encoder used in their architecture. However, high-resolution input
+images can capture more details from the image. Due to the limited input resolution of LMMs such as BLIP2,
+their capacity to extract fine-grained information in tasks like Scene Text-Centric VQA, Document-Oriented
+VQA, and KIE is constrained. However, LMMs such as Monkey, which can support a resolution of 1344×896,
+exhibit improved performance in these specific tasks.
+
+* **HMER**. LMMs struggle to recognize handwritten mathematical expressions due to the presence of messy
+handwritten characters, complex spatial structures, and the indirect LaTeX representation. The lack of training
+data for the handwritten mathematical expression recognition task is also a crucial factor.
 
 
 ## References
@@ -489,3 +521,7 @@ H.Liu, C.Li, Q.Wu, and Y.J.Lee,
 Improved Baselines with Visual instruction tuning,
 arXiv:2310.03744, 2024
 
+<a id="7">[7]</a>
+Y.Liu, Z.Li, B.Yang, C.Liu et al.
+On the Hidden Mystery of OCR in Large Multimodal Models,
+arXiv:2305.07895v5, Jan. 2024
