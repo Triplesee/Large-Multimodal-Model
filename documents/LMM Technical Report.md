@@ -1,14 +1,19 @@
-This technical report is to provide an overview of the large multimodal models. The report includes the following sections. 1) What is Large multimodel model 2) Why we are interested in LMM 3) LMM Architeture, 4) LMM Training Strategy and Data, and 5)LMM for Document Understanding. At the end of the this technical report, we will also include some highlights of a few recent LMM models.
+Large Multimodal Models and the Impact to Document Understanding
+==============
 
-# 1. What is LMM?
+# 1. Introduction
 
-Large Multi-Modal Model <-> Multi-Modal Large Language Model <-> Vision Language Model
+This technical report is to present an overview of the large multimodal models (LMM) and explore the impacts of LMM development to document understanding. The report includes the following sections. Section 2 introduces what is Large multimodel model and its manifests. Section 3 explains why we are interested in LMM, with the consideration of document understanding. Section 4 talks about LMM architeture, Training Strategy and Data. Section 5 discusses about LMM evaluation. Section 6 illustrates LMM hallucination and its mitigation. Section 7 discusses some findings, the limitations of this research, next steps and recommendations. This report also includes some highlights of the recent research paper, and results of document understanding using the online demos in the appendices. 
 
+# 2. What is a Large Multimodal Model?
 
-Formally, it (Multimodal large language model) refers to the LLM-based model with the ability to receive, reason, and output with multimodal information.
+A large multimodal model refers to a large language model based model with the ability to receive, reason, and output with multimodal informaiton. In this definition, LMM always uses a large language model as the backbone, it was also referred as multimodal large language model (MLLM). In this report, we will focus on the multimodal models with input of both image and text. For the LMM with broader multimodalities, please refer to other general LMM discussions such as CVPR 2024 Tutorial on MLLM (https://mllm2024.github.io/CVPR2024/).
 
-LMM manifests two representative traits compared with the traditional counterparts: (1) LMM is based on LLM with billion scale parameters, which is not available in previous models. (2)LMM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning to encourage the model to follow new instructions. 
+In addition to the terms of LMM and MLLM, many researchers use the term large vision language model (LVLM) to refer to the large multimodal models which can learn from images and text. In this paper, we will use these three terms exchangablly. 
 
+According to [8], LMM manifests two representative traits compared with the traditional counterparts: (1) LMM is based on LLM with billion scale parameters, which is not available in previous models. (2)LMM uses new training paradigms to unleash its full potential, such as multimodal instruction tuning [3] to encourage the model to follow new instructions. 
+
+---
 # 2. Why we are interested in LMM?
 
 It is to explore the art-of-possible, more specifically, to explore if and how LMM can make the document understanding solution more effective, more efficient and more scalable. 
@@ -128,10 +133,13 @@ Another GitHub respository worth paying attention is
 
 [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval)
 
+---
 
+<div style="page-break-after: always;"></div>
 
+---
 
-# 7. LMM Demos
+# Appendix - LMM Demos
 
 ## Two available demos with advanced LMM models
 
@@ -525,3 +533,8 @@ arXiv:2310.03744, 2024
 Y.Liu, Z.Li, B.Yang, C.Liu et al.
 On the Hidden Mystery of OCR in Large Multimodal Models,
 arXiv:2305.07895v5, Jan. 2024
+
+<a id="8">[8]</a>
+S. Yin, C. Fu, S. Zhao et al. 
+A Survey on Multimodal Large Language Models,
+arXiv:2306.13549v2, Apr. 2024
