@@ -120,6 +120,8 @@ Few-shot Fine-tuning (FT): FT provides more stable and consistent performance ac
 
 # 5. LMM for Document Understanding
 
+There have been developments towards document understanding in the fields of LMM. The examples include 
+
 # 6. LMM Evaluation
 Along with the booming of LMM, the evaulation of LMM has also made significant progress. Not only many benchmark datasets but also many Python packages were created to evaluate LMM.
 
