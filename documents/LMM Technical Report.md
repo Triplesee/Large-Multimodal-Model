@@ -37,7 +37,7 @@ The typical LMM architechture is as follows (please refer to the repository wiki
 
 <!-- ![architecture](pictures/architecture.png =500x200) -->
 <p align="center">
-  <img src="pictures/architecture.png" width="750" />
+  <img src="pictures/LMM_Essentials.png" width="750" />
 </p>
 
 ## 3.1 Modality encoder
