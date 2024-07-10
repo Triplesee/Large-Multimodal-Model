@@ -19,21 +19,28 @@ According to [8], LMM manifests two representative traits compared with the trad
 It is to explore the art-of-possible, more specifically, to explore if and how LMM can make the document understanding solution more effective, more efficient and more scalable. 
 
 ## 2.1 Potential Improvements to the current DU pipeline 
-We are looking at a few aspects of the DU pipeline for improvement. 1) The DU pipeline is very complex, consisting of 8 steps and more than 10 machine learning models. The complexity makes it very difficult to scale, not only scale up but also scale out. 2) The team has put a lot of effort to improve the efficiency of the DU pipeline in the last a few months, including trying faster models, parallel computing, revising post-processing of information extraction, in addition to the effort of having new hardware and platform. We would like to explore if LMMs can help increase the throughput of the DU pipline. 3) The performance of the models in the current DU pipeline is to be improved. It will require substantial amount of effort to get the training data, building and validating multiple models in the DU pipeline. 
+We are looking at a few aspects of the DU pipeline for improvement. 1) The DU pipeline is very complex, consisting of multiple steps and more than 10 machine learning models. The complexity makes it very difficult to scale. On the other hand, LMM has the potential to replace multiple machine learning models in the pipeline hence to simplify the DU pipeline. 2) The performance of the models in the current DU pipeline is to be improved. It will require substantial amount of effort to obtain the training data, building and validating multiple models in the DU pipeline. With Large language model being the backbone, the pre-trained LMMs have the potential to handle general scenarios without retraining the models. 3) The document understanding team has put a lot of effort to improve the efficiency of the DU pipeline, including trying faster models, parallel computing, optimising post-processing, in addition to the effort of having new hardware and platform. These have significantly improved the throughput of the DU pipeline. At the meanwhile, we also would like to explore if LMMs can help increase the throughput, particularly taking the advantage of the versatility of LMM to generate the required results in one step instead of multiple steps. 
 
 ## 2.2 Advance in LLM and LMM
-LLM has revolutionised the field of artificial intelligence, enabling natural language processing teask that were previously through exclusive to humans. The emergence of GPT-3 brought a signficant leap in capabilities, particularly in few shot and zero-shot learning, highlighing the immence potential of LLMs. This promis was further realised with the advancements of ChatGPT and GPT-4. The progress in the field has been further accelerated by the emergence of open-source LLMs including the LLaMA series, Vicuna, Qwen etc.
+LLM has revolutionised the field of artificial intelligence, enabling natural language processing tasks that were previously through exclusive to humans. The emergence of GPT-3 brought a significant leap in capabilities, particularly in few shot and zero-shot learning, highlighting the immence potential of LLMs. This promis was further realised with the advancements of ChatGPT and GPT-4. The progress in the field has been further accelerated by the emergence of open-source LLMs including the LLaMA series, Vicuna, Qwen etc.
+
+Ever since the release of GPT-4, there has been a research frenzy over LMMs because of the amazing multimodal examples it shows. Rapid deveopment is fueled by efforts from both academia and industry. Preliminary research on LMMs focuses on text content generation grounded in text prompts and image/video/audio.  
+
+Why do we pay attention to LMM?
+
+What does DU do?
+Document understanding refers to the process of automated understanding, classifying and extracting information from either digital documents or scanned documents. Due to  the diversity of layouts and formats, low-quality scanned document images, and the complexity of the template structure, document understanding is a very challenging task. 
 
 
 ## 2.2 Document understanding solution - Two Steps VS OCR Free
-Extracting key information from a variety of sources, including documents like tables, forms, and invoices, as well as text in the wild is crucial for industries and acadmeic research, aiming to automate the refine document-based and scene-text workflows. This field requires text detection and recognition in both document images and real-world scenes, language comprehension, and the integration of vision and language.
+Extracting key information from a variety of sources, including documents like tables, forms, and invoices, as well as text in the wild is crucial for industries and academic research, aiming to automate the refine document-based and scene-text workflows. This field requires text detection and recognition in both document images and real-world scenes, language comprehension, and the integration of vision and language.
 
 Many early methods attempt to address the task using a two-stage approach: 1)Detect and recognise the text using external systems; 2)Document understanding based on the fusion of text results and images. However, the individual step of text reading in the processing pipeline may lead to the accumulation of errors. Moreover, relying on off-the-shelf OCR Models/APIs (OCR-Models) introduces additional engineering complexity, limits the connection between the text and its surrounding context, and can potentially increase computational costs. 
 
-# 3. LMM Architeture
+# 3. LMM Architecture
 A typical LMM can be abstracted into three modules, i.e., a pre-trained modality encoder, a pre-trained LLM, and a modality interface to connect them. 
 
-The typical LMM architechture is as follows (please refer to the repository wiki to know more about inserting images in github):
+The typical LMM architecture is as follows (please refer to the repository wiki to know more about inserting images in github):
 
 <!-- ![architecture](pictures/architecture.png =500x200) -->
 <p align="center">
