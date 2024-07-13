@@ -416,6 +416,22 @@ The names of the speakers mentioned in the document are:
 These speakers are affiliated with various universities and institutions, and their topics cover a range of subjects related to the human chromosome and cytogenetics.
 
 
+## Example of claim match: petrol for car expense 
+<img style="float:right;" src="pictures/double-petrol-tilted.jpg" height="450" width="300" />
+
+
+Q: Is this image relevant to the car expense?
+
+A: Yes, this image appears to be relevant to car expenses. The receipt shown in the images is from Woolworths Fuel and Costco Wholesale Australia for fuel purchases at a petrol pump (Pump #4). These types of receipts are commonly used as records when claiming vehicle-related expenses such as fuel costs.  
+
+Key points indicating relevance:  
+
+* Fuel Purchase: The transaction details include 44 liters of unleaded fuel purchased.  
+* Fuel Station Details: Information about where the purchase was made including specific station location identifiers like ABN number which might help with expense tracking or reimbursement processes if required by an employer or tax authority.  
+* Transaction Date & Time: This helps keep track of the timing related to any trips taken during that period.  
+
+Therefore, it would indeed serve as evidence towards deducting these expenditures on vehicles under certain circumstances, especially within business travel contexts requiring detailed record-keeping.
+
 # Selected LMM Papers
 
 ## Paper: LayoutLLM: Layout Instruction Tuning with Large Language Models for Deocument Understanding [[4]](#4) 
