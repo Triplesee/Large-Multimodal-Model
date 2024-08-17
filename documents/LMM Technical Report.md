@@ -22,9 +22,9 @@ It is to explore the art-of-possible, more specifically, to explore if and how L
 We are looking at a few aspects of the DU pipeline for improvement. 1) The DU pipeline is very complex, consisting of multiple steps and more than 10 machine learning models. The complexity makes it very difficult to scale. On the other hand, LMM has the potential to replace multiple machine learning models in the pipeline hence to simplify the DU pipeline. 2) The performance of the models in the current DU pipeline is to be improved. It will require substantial amount of effort to obtain the training data, building and validating multiple models in the DU pipeline. With Large language model being the backbone, the pre-trained LMMs have the potential to handle general scenarios without retraining the models. 3) The document understanding team has put a lot of effort to improve the efficiency of the DU pipeline, including trying faster models, parallel computing, optimising post-processing, in addition to the effort of having new hardware and platform. These have significantly improved the throughput of the DU pipeline. At the meanwhile, we also would like to explore if LMMs can help increase the throughput, particularly taking the advantage of the versatility of LMM to generate the required results in one step instead of multiple steps. 
 
 ## 2.2 Advance in LLM and LMM
-LLM has revolutionised the field of artificial intelligence, enabling natural language processing tasks that were previously through exclusive to humans. The emergence of GPT-3 brought a significant leap in capabilities, particularly in few shot and zero-shot learning, highlighting the immence potential of LLMs. This promis was further realised with the advancements of ChatGPT and GPT-4. The progress in the field has been further accelerated by the emergence of open-source LLMs including the LLaMA series, Vicuna, Qwen etc.
+LLM has revolutionised the field of artificial intelligence, enabling natural language processing tasks that were previously through exclusive to humans. The emergence of GPT-3 brought a significant leap in capabilities, particularly in few shot and zero-shot learning, highlighting the immense potential of LLMs. This promis was further realised with the advancements of ChatGPT and GPT-4. The progress in the field has been further accelerated by the emergence of open-source LLMs including the LLaMA series, Vicuna, Qwen etc.
 
-Ever since the release of GPT-4, there has been a research frenzy over LMMs because of the amazing multimodal examples it shows. Rapid deveopment is fueled by efforts from both academia and industry. Preliminary research on LMMs focuses on text content generation grounded in text prompts and image/video/audio.  
+Ever since the release of GPT-4, there has been a research frenzy over LMMs because of the amazing multimodal examples it shows. Rapid development is fuelled by efforts from both academia and industry. Preliminary research on LMMs focuses on text content generation grounded in text prompts and image/video/audio.  
 
 Why do we pay attention to LMM?
 
@@ -86,18 +86,18 @@ Since LLMs can only perceive text, bridging the gap between natural language and
 
 For token-level fusion, features output from encoder are transformed into tokens and concatenated with text tokens before being sent into LLMs. A common and feasible solution is to leverage a group of learnable query tokens to extract information in a query-based manner. Such Q-Former style approaches compress visual tokens into a smaller number of representation vectors. In contrast, some methods simply use a MLP-based interface to bridge the modality gap. For example, LLaVA [[3]](#3) adopts one/two linear MLP to project visual tokens and align the feature dimension with word embeddings.
 
-On a related note, MM1 has ablated on design choices on the connector and found that for token-level fursion, the type of modality adapter is far less important than the number of visual tokens and input resolution.
+On a related note, MM1 has ablated on design choices on the connector and found that for token-level fusion, the type of modality adapter is far less important than the number of visual tokens and input resolution.
 
 As another line, feature-level fusion inserts extra modules that enable deep interaction and fusion between text features and visual features. 
 
-Empirially reveal that the token-level fusion variant performs better in terms of VQA benchmarks. Rgarding the performance gap, the authors suggest that cross-attention models might require a more complicated hyper-parameter searching process to achieve comparable performance.
+Empirially reveal that the token-level fusion variant performs better in terms of VQA benchmarks. Regarding the performance gap, the authors suggest that cross-attention models might require a more complicated hyper-parameter searching process to achieve comparable performance.
 
 
-**Expert Model**. Apart from the learnable interface, using expert models, such as an image captioning model, is also a feaible way to bridge the modality gap. The basic idea is to convert multimodal inputs into languages without training. In this way, LLMs can understand multimodality by the converted languages. Though using expert models is straightforward, it may not be as flexible as adopting a learnable interface. The conversion of foreign modalities into text would cause information loss.
+**Expert Model**. Apart from the learnable interface, using expert models, such as an image captioning model, is also a feasible way to bridge the modality gap. The basic idea is to convert multimodal inputs into languages without training. In this way, LLMs can understand multimodality by the converted languages. Though using expert models is straightforward, it may not be as flexible as adopting a learnable interface. The conversion of foreign modalities into text would cause information loss.
 
 
 ## 3.4 Some models using multiple resolution of images for pretraining
-In these models, the visual encoder is no longer a CLIP as CLIP needs the image and text pair as training data. Instead these models using a pure visual encoder without text information. For example, InternVL[[5]](#5) used a a so-called dynamic high-resolution strategy to train a strong vision encoder named Intern ViT-6B-448px-V1.5. TextMonkey used a strategy including three steps: 1)shifted Window Attention; 2)Image Resampler; and 3)token resampler. In TextMonkey, the positional cues of the ansers were extracted and integrated into the answers themselves. Because of this strategy, it has a certain level of capacility of grounding, i.e., identifying the position of the information being extracted from the images. UReader also trained a visual encoder before passing the information to the LLM for instruction tuning. It also includes some grid information which makes it possible to present certain level of grounding capability.  
+In these models, the visual encoder is no longer a CLIP as CLIP needs the image and text pair as training data. Instead these models using a pure visual encoder without text information. For example, InternVL[[5]](#5) used a a so-called dynamic high-resolution strategy to train a strong vision encoder named Intern ViT-6B-448px-V1.5. TextMonkey used a strategy including three steps: 1)shifted Window Attention; 2)Image Resampler; and 3)token resampler. In TextMonkey, the positional cues of the answers were extracted and integrated into the answers themselves. Because of this strategy, it has a certain level of capacity of grounding, i.e., identifying the position of the information being extracted from the images. UReader also trained a visual encoder before passing the information to the LLM for instruction tuning. It also includes some grid information which makes it possible to present certain level of grounding capability.  
 
 
 # 4. LMM Training Strategy and Data
@@ -130,7 +130,7 @@ Few-shot Fine-tuning (FT): FT provides more stable and consistent performance ac
 There have been developments towards document understanding in the fields of LMM. The examples include 
 
 # 6. LMM Evaluation
-Along with the booming of LMM, the evaulation of LMM has also made significant progress. Not only many benchmark datasets but also many Python packages were created to evaluate LMM.
+Along with the booming of LMM, the evaluation of LMM has also made significant progress. Not only many benchmark datasets but also many Python packages were created to evaluate LMM.
 
 One of the best GitHub repositories about LMM evaluation is 
 
@@ -138,7 +138,7 @@ One of the best GitHub repositories about LMM evaluation is
 
 VLMEvalKit (the python package name is vlmeval) is an open-source evaluation toolkit of large vision-language models (LVLMs). It enables one-command evaluation of LVLMs on various benchmarks, without the heavy workload of data preparation under multiple repositories. It supports many popular LMMs such as GPT-4v, GPT-4o, Gemini, LLaVA, InternVL,Qwen-VL etc, and many benchmark datasets such as MME, OCRBench, DocVQA, TextVQA etc.
 
-Another GitHub respository worth paying attention is   
+Another GitHub repository worth paying attention is   
 
 [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval)
 
@@ -466,7 +466,7 @@ improves the model’s detailed perception capabilities and reduces hallucinatio
 
 
 
-## Paper: InternVL: Scaling up Vision Foundation Modesl and Aligning for Generic Visual-Linguistic Tasks [[5]](#5) 
+## Paper: InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks [[5]](#5)  
 
 
 
@@ -486,7 +486,7 @@ In particular, we study the importance of various architecture components and da
 careful and comprehensive ablations of the image encoder, the vision
 language connector, and various pre-training data choices, we identified several crucial design lessons. For example, we demonstrate that for
 large-scale multimodal pre-training using a careful mix of image-caption,
-interleaved image-text, and text-only data is crucial for achieving stateof-the-art (SOTA) few-shot results across multiple benchmarks, compared to other published multimodal pre-training results. Further, we
+interleaved image-text, and text-only data is crucial for achieving state-of-the-art (SOTA) few-shot results across multiple benchmarks, compared to other published multimodal pre-training results. Further, we
 show that the image encoder together with image resolution and the image token count has substantial impact, while the vision-language connector design is of comparatively negligible importance
 
 ## Paper: On the Hidden Mystery of OCR in Large Multimodal Models [[7]](#7)
