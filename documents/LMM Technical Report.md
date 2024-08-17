@@ -1,13 +1,13 @@
-Large Multimodal Models and the Impact to Document Understanding
+Large Multimodal Models and Large Language Models for Document Understanding
 ==============
 
 # 1. Introduction
 
-This technical report is to present an overview of the large multimodal models (LMM) and explore the impacts of LMM development to document understanding. The report includes the following sections. Section 2 introduces what is Large multimodel model and its manifests. Section 3 explains why we are interested in LMM, with the consideration of document understanding. Section 4 talks about LMM architeture, Training Strategy and Data. Section 5 discusses about LMM evaluation. Section 6 illustrates LMM hallucination and its mitigation. Section 7 discusses some findings, the limitations of this research, next steps and recommendations. This report also includes some highlights of the recent research paper, and results of document understanding using the online demos in the appendices. 
+This technical report is to present an overview of the large multimodal models (LMM) and explore the impacts of LMM development to document understanding. The report includes the following sections. Section 2 introduces what is Large multimodal model and its manifests. Section 3 explains why we are interested in LMM, with the consideration of document understanding. Section 4 talks about LMM architecture, Training Strategy and Data. Section 5 discusses about LMM evaluation. Section 6 illustrates LMM hallucination and its mitigation. Section 7 discusses some findings, the limitations of this research, next steps and recommendations. This report also includes some highlights of the recent research paper, and results of document understanding using the online demos in the appendices. 
 
 # 2. What is a Large Multimodal Model?
 
-A large multimodal model refers to a large language model based model with the ability to receive, reason, and output with multimodal informaiton. In this definition, LMM always uses a large language model as the backbone, it was also referred as multimodal large language model (MLLM). In this report, we will focus on the multimodal models with input of both image and text. For the LMM with broader multimodalities, please refer to other general LMM discussions such as CVPR 2024 Tutorial on MLLM (https://mllm2024.github.io/CVPR2024/).
+A large multimodal model refers to a large language model based model with the ability to receive, reason, and output with multimodal information. In this definition, LMM always uses a large language model as the backbone, it was also referred as multimodal large language model (MLLM). In this report, we will focus on the multimodal models with input of both image and text. For the LMM with broader multimodalities, please refer to other general LMM discussions such as CVPR 2024 Tutorial on MLLM (https://mllm2024.github.io/CVPR2024/).
 
 In addition to the terms of LMM and MLLM, many researchers use the term large vision language model (LVLM) to refer to the large multimodal models which can learn from images and text. In this paper, we will use these three terms exchangablly. 
 
